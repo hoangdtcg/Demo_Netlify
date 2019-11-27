@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<style>
+    div#caculator {
+        border: 1px solid black;
+        background-color: #80808070;
+        width: 320px;
+        padding: 10px;
+    }
+
+    input#screen {
+        width: 100%;
+        text-align: right;
+        height: 40px;
+        font-size: 30px;
+    }
+
+    button {
+        width: 75px;
+        height: 75px;
+    }
+</style>
+<body>
+    <div id="caculator">
+        <input id="screen" type="text" value="" placeholder="0">
+        <br>
+        <button onclick="clearScreen()">Clear</button>
+        <button>Del</button>
+        <button onclick="sqrNumber()">Sqr</button>
+        <br>
+        <button value="1" onclick="addToScreen(this.value)">1</button>
+        <button value="2" onclick="addToScreen(this.value)">2</button>
+        <button value="3" onclick="addToScreen(this.value)">3</button>
+        <button value="+" class="op" onclick="addToScreen(this.value)">+</button>
+        <br>
+        <button value="4" onclick="addToScreen(this.value)">4</button>
+        <button value="5" onclick="addToScreen(this.value)">5</button>
+        <button value="6" onclick="addToScreen(this.value)">6</button>
+        <button value="-" class="op" onclick="addToScreen(this.value)">-</button>
+        <br>
+        <button value="7" onclick="addToScreen(this.value)">7</button>
+        <button value="8" onclick="addToScreen(this.value)">8</button>
+        <button value="9" onclick="addToScreen(this.value)">9</button>
+        <button value="*" class="op" onclick="addToScreen(this.value)">x</button>
+        <br>
+        <button value="." onclick="addToScreen(this.value)">.</button>
+        <button value="0" onclick="addToScreen(this.value)">0</button>
+        <button onclick="calc()">=</button>
+        <button value="/" class="op" onclick="addToScreen(this.value)">/</button>
+        <br>
+    </div>
+    <script>
+        let screen = document.getElementById('screen');
+        function addToScreen(value) {
+            screen.value += value;
+        }
+        
+        function calc() {
+            let result = eval(screen.value);
+            screen.value = result;
+        }
+
+        function clearScreen() {
+            screen.value = "";
+        }
+
+        function sqrNumber() {
+            let result = eval(screen.value);
+            result = Math.pow(result,2);
+            screen.value = result;
+        }
+
+    </script>
+</body>
+
+</html>
